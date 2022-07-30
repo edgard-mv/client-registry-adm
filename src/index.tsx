@@ -6,12 +6,18 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+
+const globalQueryClient = new QueryClient();
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={globalQueryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
